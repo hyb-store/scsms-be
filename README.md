@@ -63,19 +63,20 @@ CREATE TABLE `t_sale_car`  (
   `status` int(1) NOT NULL DEFAULT '' COMMENT '是否卖掉',
   `views` int(5) NULL DEFAULT 0 COMMENT '汽车浏览量',
   `store_id` int(11) NOT NULL DEFAULT 0 COMMENT '门店id',
-  `owner_id` int(11) NOT NULL DEFAULT 0 COMMENT '车主id',
+  `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '车主id',
   `create_time` datetime(6) NULL DEFAULT NULL COMMENT '车的上架日期'
   PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `t_car`  (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `brand` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车品牌',
-  `series` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车车系',
-  `seat` varchar(2) NOT NULL DEFAULT '' COMMENT '汽车的座位数',
-  `fuel` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车的燃料类型(电动、汽油、混动)',
-  `price` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车原价',
-  PRIMARY KEY (`id`)
+  `id` int NOT NULL AUTO_INCREMENT,
+  `brand` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车品牌',
+  `series` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车车系',
+  `model` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车款式',
+  `structure` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车车身结构(5门5座两厢车)',
+  `fuel` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车的燃料类型(电动、汽油、混动)',
+  `price` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车原价/厂商指导价',
+  PRIMARY KEY (`id`) USING BTREE
 );
 
 CREATE TABLE `t_store`  (
