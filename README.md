@@ -47,7 +47,6 @@ CREATE TABLE `t_user`  (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户id',
   `username` varchar(10) NOT NULL DEFAULT '' COMMENT '用户名',
   `password` varchar(16) NOT NULL DEFAULT '' COMMENT '密码',
-  `avatar` varchar(50) NOT NULL DEFAULT '' COMMENT '头像',
   `phone_num` varchar(11) NOT NULL DEFAULT '' COMMENT '电话',
   `email` varchar(20) NOT NULL DEFAULT '' COMMENT '邮箱',
   `gender` int(1) NOT NULL DEFAULT 0 COMMENT '性别',
@@ -60,7 +59,7 @@ CREATE TABLE `t_sale_car`  (
   `price` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车卖出的价格',
   `km` int(8) NOT NULL DEFAULT '' COMMENT '汽车行驶的里程数(km)',
   `color` varchar(10) NOT NULL DEFAULT '' COMMENT '汽车的颜色',
-  `status` int(1) NOT NULL DEFAULT '' COMMENT '是否卖掉',
+  `status` int(1) NOT NULL DEFAULT 0 COMMENT '是否卖掉',
   `views` int(5) NULL DEFAULT 0 COMMENT '汽车浏览量',
   `store_id` int(11) NOT NULL DEFAULT 0 COMMENT '门店id',
   `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '车主id',
@@ -70,12 +69,12 @@ CREATE TABLE `t_sale_car`  (
 
 CREATE TABLE `t_car`  (
   `id` int NOT NULL AUTO_INCREMENT,
-  `brand` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车品牌',
-  `series` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车车系',
-  `model` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车款式',
-  `structure` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车车身结构(5门5座两厢车)',
-  `fuel` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车的燃料类型(电动、汽油、混动)',
-  `price` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' COMMENT '汽车原价/厂商指导价',
+  `brand` varchar(20) NOT NULL DEFAULT '' COMMENT '汽车品牌',
+  `series` varchar(30) NOT NULL DEFAULT '' COMMENT '汽车车系',
+  `model` varchar(100) NOT NULL DEFAULT '' COMMENT '汽车款式',
+  `structure` varchar(20) NOT NULL DEFAULT '' COMMENT '汽车车身结构(5门5座两厢车)',
+  `fuel` varchar(20) NOT NULL DEFAULT '' COMMENT '汽车的燃料类型(电动、汽油、混动)',
+  `price` varchar(20) NOT NULL DEFAULT '' COMMENT '汽车原价/厂商指导价',
   PRIMARY KEY (`id`) USING BTREE
 );
 
