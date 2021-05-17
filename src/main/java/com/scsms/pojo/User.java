@@ -1,14 +1,19 @@
 package com.scsms.pojo;
 
-public class User {
+import java.io.Serializable;
+import java.util.List;
+
+public class User implements Serializable {
 
     private Integer id;
     private String username;
     private String password;
-    private String avatar;
     private String phoneNum;
     private String email;
-    private String gender;
+    private Integer gender;
+
+    //一个用户可能有多个上架的车
+    private List<SaleCar> saleCars;
 
     public Integer getId() {
         return id;
@@ -34,14 +39,6 @@ public class User {
         this.password = password;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
     public String getPhoneNum() {
         return phoneNum;
     }
@@ -58,11 +55,11 @@ public class User {
         this.email = email;
     }
 
-    public String getGender() {
+    public Integer getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(Integer gender) {
         this.gender = gender;
     }
 
@@ -72,7 +69,6 @@ public class User {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", avatar='" + avatar + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 ", email='" + email + '\'' +
                 ", gender='" + gender + '\'' +
