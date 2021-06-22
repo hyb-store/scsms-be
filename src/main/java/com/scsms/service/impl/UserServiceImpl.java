@@ -48,9 +48,9 @@ public class UserServiceImpl implements UserService {
         if (user.getUsername() != null && user.getPassword() != null && !user.getUsername().equals("") && !user.getPassword().equals("")) {
             if (!checkUsername(user.getUsername())) {//不存在
                 userMapper.register(user);
-                return false;
-            } else {//存在返回true
                 return true;
+            } else {//存在返回true
+                return false;
             }
         }
         return false;

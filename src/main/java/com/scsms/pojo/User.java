@@ -12,14 +12,6 @@ public class User implements Serializable {
     private String email;
     private Integer gender;
 
-    public User(String username, String password, String phoneNum, String email, Integer gender) {
-        this.username = username;
-        this.password = password;
-        this.phoneNum = phoneNum;
-        this.email = email;
-        this.gender = gender;
-    }
-
     //一个用户可能有多个上架的车
     private List<SaleCar> saleCars;
 
