@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scsms.mapper.CarMapper">
+    <resultMap id="t_sale_car" type="com.scsms.pojo.SaleCar">
+        <result column="id" property="id"></result>
+        <result column="car_id" property="carId"></result>
+        <result column="price" property="price"></result>
+        <result column="km" property="km"></result>
+        <result column="color" property="color"></result>
+        <result column="status" property="status"></result>
+        <result column="views" property="views"></result>
+        <result column="store_id" property="storeId"></result>
+        <result column="user_id" property="userId"></result>
+        <result column="create_time" property="createTime"></result>
+    </resultMap>
+
+    <select id="selectAll" resultMap="t_sale_car">
+        select * from t_sale_car where id in (1,2);
+    </select>
+
+</mapper>
