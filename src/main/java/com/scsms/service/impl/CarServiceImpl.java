@@ -30,14 +30,12 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<String> selectBrandList() {
-        List<String> brands = carMapper.selectBrandList();
-        return brands;
+        return carMapper.selectBrandList();
     }
 
     @Override
     public List<String> selectSeriesLimit(String brand) {
-        List<String> brands = carMapper.selectSeriesLimit(brand);
-        return brands;
+        return carMapper.selectSeriesLimitByBrand(brand);
     }
 
     @Override

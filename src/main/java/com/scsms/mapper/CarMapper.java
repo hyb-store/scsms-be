@@ -13,7 +13,7 @@ public interface CarMapper {
 
     List<String> selectSeriesLimit();//查车系，默认10
 
-    List<String> selectSeriesLimit(String brand);//根据品牌查车系，默认10
+    List<String> selectSeriesLimitByBrand(String brand);//根据品牌查车系，默认10
 
     List<String> selectSeriesList(String brand);// 根据品牌查所有车系
 
