@@ -10,4 +10,7 @@ public interface SaleCarMapper {
 
     List<SaleCar> selectList(String brand, String series, Integer lowPrice, Integer highPrice);
 
+    void insert(SaleCar saleCar);//新车插入
+
+    int selectCarId(String brand, String series, String model);//根据品牌，车系，款式查询car_id
 }

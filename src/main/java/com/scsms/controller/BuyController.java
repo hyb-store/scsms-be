@@ -22,7 +22,7 @@ public class BuyController {
     private SaleCarService saleCarService;
 
     @GetMapping("/index")
-    public ResponseData getCarInfo() {
+    public ResponseData selectCarInfo() {
         Map<String, List<String >> map = carService.selectList();
         ResponseData responseData = null;
         if (map != null) {
@@ -47,12 +47,12 @@ public class BuyController {
     }
 
     @GetMapping("/seriesLimit") //根据品牌查车系 10
-    public ResponseData selectSeriesLimitByBrand(@RequestParam(value = "brand") String brand) {
+    public ResponseData selectSeriesLimit(@RequestParam(value = "brand") String brand) {
         ResponseData responseData = null;
         if (brand == null || brand.equals("")) {
             return new ResponseData(1, "查询条件为空", null);
         }
-        List<String> series = carService.selectSeriesLimitByBrand(brand);
+        List<String> series = carService.selectSeriesLimit(brand);
         if (series != null) {
             responseData = new ResponseData(0, "查询成功", series);
         } else {
@@ -62,12 +62,12 @@ public class BuyController {
     }
 
     @GetMapping("/series")//根据品牌查全部车系
-    public ResponseData selectSeriesListByBrand(@RequestParam(value = "brand") String brand) {
+    public ResponseData selectSeriesList(@RequestParam(value = "brand") String brand) {
         ResponseData responseData = null;
         if (brand == null || brand.equals("")) {
             return new ResponseData(1, "查询条件为空", null);
         }
-        List<String> series = carService.selectSeriesListByBrand(brand);
+        List<String> series = carService.selectSeriesList(brand);
         if (series != null) {
             responseData = new ResponseData(0, "查询成功", series);
         } else {
@@ -76,13 +76,26 @@ public class BuyController {
         return responseData;
     }
 
+    @GetMapping("/models")
+    public ResponseData selectModel(@RequestParam("series") String series) {
+        ResponseData responseData = null;
+
+        List<String> models = carService.selectModelList(series);
+        if (models != null) {
+            responseData = new ResponseData(0, "success", models);
+        } else {
+            responseData = new ResponseData(1, "fail", null);
+        }
+
+        return responseData;
+    }
+
     @GetMapping("/queryInfo")
-    public ResponseData selectCarInfo(@RequestParam(name = "page", required = true, defaultValue = "1") Integer page,
-                                      @RequestParam(name = "size", required = true, defaultValue = "5") Integer size,
+    public ResponseData selectCarInfo(@RequestParam(name = "page", defaultValue = "1") Integer page,
+                                      @RequestParam(name = "size", defaultValue = "20") Integer size,
                                       @RequestParam(value = "brand", required =  false) String brand,
                                       @RequestParam(value = "series", required = false) String series,
                                       @RequestParam(value = "price", required = false) String price) {
-
         ResponseData responseData = null;
         PageInfo<SaleCar> saleCarPageInfo = saleCarService.selectList(page, size, brand, series, price);
         if (saleCarPageInfo != null) {

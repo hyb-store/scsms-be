@@ -28,4 +28,9 @@
         select distinct series from t_car where `brand` = #{brand}
     </select>
 
+    <select id="selectModelList" parameterType="String" resultType="String">
+        select distinct model from t_car where `series` = #{series}
+    </select>
+
+
 </mapper>

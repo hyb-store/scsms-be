@@ -1,7 +1,5 @@
 package com.scsms.service;
 
-import com.scsms.pojo.Car;
-
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +9,9 @@ public interface CarService {
 
     List<String> selectBrandList();
 
-    List<String> selectSeriesLimitByBrand(String brand);
+    List<String> selectSeriesLimit(String brand);
 
-    List<String> selectSeriesListByBrand(String brand);
+    List<String> selectSeriesList(String brand);
+
+    List<String> selectModelList(String series);
 }
