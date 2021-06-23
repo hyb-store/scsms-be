@@ -18,7 +18,7 @@
         select * from t_user where username = #{username};
     </select>
 
-    <insert id="register" parameterType="com.scsms.pojo.User">
+    <insert id="register" useGeneratedKeys="true" keyProperty="id" parameterType="com.scsms.pojo.User">
         insert into t_user (username, password, phone_num, email, gender) values (#{username}, #{password}, #{phoneNum}, #{email}, #{gender});
     </insert>
 

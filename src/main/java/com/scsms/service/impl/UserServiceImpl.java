@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
         if (user.getUsername() != null && user.getPassword() != null && !user.getUsername().equals("") && !user.getPassword().equals("")) {
             if (userMapper.selectOne(user.getUsername()) == null) {
                 userMapper.register(user);
-                return userMapper.selectOne(user.getUsername());
+                return user;
             }
         }
         return null;
