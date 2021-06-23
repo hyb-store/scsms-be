@@ -4,21 +4,28 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.scsms.mapper.CarMapper">
-    <resultMap id="t_sale_car" type="com.scsms.pojo.SaleCar">
-        <result column="id" property="id"></result>
-        <result column="car_id" property="carId"></result>
-        <result column="price" property="price"></result>
-        <result column="km" property="km"></result>
-        <result column="color" property="color"></result>
-        <result column="status" property="status"></result>
-        <result column="views" property="views"></result>
-        <result column="store_id" property="storeId"></result>
-        <result column="user_id" property="userId"></result>
-        <result column="create_time" property="createTime"></result>
-    </resultMap>
 
-    <select id="selectAll" resultMap="t_sale_car">
-        select * from t_sale_car where id in (1,2);
+    <select id="selectBrandLimit" resultType="String">
+        select distinct brand from t_car limit 0,10
+    </select>
+
+    <select id="selectBrandList" resultType="String">
+        select distinct brand from t_car
+    </select>
+
+    <!--查车系，15-->
+    <select id="selectSeriesLimit" resultType="String">
+        select distinct series from t_car group by brand limit 0,10
+    </select>
+
+    <!--根据品牌查车系，15-->
+    <select id="selectSeriesLimitByBrand" parameterType="String" resultType="String">
+        select distinct series from t_car where brand = #{brand} limit 0,10
+    </select>
+
+    <!--根据品牌查所有车系-->
+    <select id="selectSeriesListByBrand" parameterType="String" resultType="String">
+        select distinct series from t_car where `brand` = #{brand}
     </select>
 
 </mapper>

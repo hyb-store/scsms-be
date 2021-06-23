@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scsms.mapper.SaleCarMapper">
+    <resultMap id="saleCarMap" type="com.scsms.pojo.SaleCar">
+        <result property="id" column="id"></result>
+        <result property="carId" column="car_id"></result>
+        <result property="price" column="price"></result>
+        <result property="km" column="km"></result>
+        <result property="color" column="color"></result>
+        <result property="status" column="status"></result>
+        <result property="views" column="views"></result>
+        <result property="storeId" column="store_id"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="createTime" column="create_time"></result>
+        <association property="car" column="car_id" javaType="com.scsms.pojo.Car">
+            <result property="id" column="id"></result>
+            <result property="brand" column="brand"></result>
+            <result property="series" column="series"></result>
+            <result property="model" column="model"></result>
+            <result property="structure" column="structure"></result>
+            <result property="fuel" column="fuel"></result>
+            <result property="price" column="price"></result>
+        </association>
+    </resultMap>
+
+    <!--
+        原符号   <    <=      >       >=       &        '        "
+        替换符号 &lt; &lt;=  &gt;    &gt;=   &amp;   &apos;  &quot;
+    -->
+    <select id="selectList" resultMap="saleCarMap">
+        select s.*, c.*  from t_sale_car s left join t_car c on s.car_id = c.id
+        <where>
+            s.price &lt; #{highPrice} and s.price &gt; #{lowPrice}
+            <if test="brand != null and brand != ''">
+                and c.`brand` = #{brand}
+            </if>
+            <if test="series != null and series != ''">
+                and c.`series` = #{series}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

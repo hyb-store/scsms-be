@@ -15,4 +15,4 @@ pagehelper:
   params: countSql
 logging:
   level:
-    com.yiqiandewo.mapper: debug  # ¿ØÖÆÌ¨´òÓ¡sql
+    com.scsms.mapper: debug

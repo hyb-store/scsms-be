@@ -13,15 +13,12 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User check(String username, String password) {
+    public User login(String username, String password) {
         User user = userMapper.selectOne(username);
         if (user != null) {
             if (user.getPassword().equals(password)) {
                 //登陆成功
                 return user;
-            } else {
-                //密码错误
-                return null;
             }
         }
 
@@ -29,30 +26,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean checkUsername(String username) {
-        User user = userMapper.selectOne(username);
-        if (user == null) {//不存在返回false
-            return false;
-        } else {//存在返回true
-            return true;
-        }
-    }
-
-    /**
-     *  注册
-     * @param user
-     * @return  0.账户不存在，允许注册   1.账户存在，不能注册  2.账户或者密码为空
-     */
-    @Override
-    public boolean register(User user) {
+    public User register(User user) {
         if (user.getUsername() != null && user.getPassword() != null && !user.getUsername().equals("") && !user.getPassword().equals("")) {
-            if (!checkUsername(user.getUsername())) {//不存在
+            if (userMapper.selectOne(user.getUsername()) == null) {
                 userMapper.register(user);
-                return true;
-            } else {//存在返回true
-                return false;
+                return userMapper.selectOne(user.getUsername());
             }
         }
-        return false;
+        return null;
     }
 }

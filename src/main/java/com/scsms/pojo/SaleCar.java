@@ -16,6 +16,16 @@ public class SaleCar implements Serializable {
     private String userId; //车主
     private Date createTime; //上架日期
 
+    private Car car;  //一对一
+
+    public Car getCar() {
+        return car;
+    }
+
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
     public Integer getId() {
         return id;
     }

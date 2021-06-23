@@ -1,6 +1,5 @@
 package com.scsms.mapper;
 
-import com.scsms.pojo.SaleCar;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -8,6 +7,14 @@ import java.util.List;
 @Mapper
 public interface CarMapper {
 
-    public List<SaleCar> selectAll();
+    List<String> selectBrandLimit();// 默认15
+
+    List<String> selectBrandList();// 全部
+
+    List<String> selectSeriesLimit();//查车系，默认10
+
+    List<String> selectSeriesLimitByBrand(String brand);//根据品牌查车系，默认10
+
+    List<String> selectSeriesListByBrand(String brand);// 根据品牌查所有车系
 
 }
