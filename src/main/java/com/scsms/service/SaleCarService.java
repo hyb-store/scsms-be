@@ -11,4 +11,6 @@ public interface SaleCarService {
     PageInfo<SaleCar> selectList(int page, int size, String brand, String series, String price);
 
     SaleCar insertOne(Map<String, String> map, HttpSession session);
+
+    SaleCar selectOne(Integer id);
 }

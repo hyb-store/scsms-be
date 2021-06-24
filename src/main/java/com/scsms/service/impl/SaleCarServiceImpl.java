@@ -48,6 +48,11 @@ public class SaleCarServiceImpl implements SaleCarService {
         return saleCar;
     }
 
+    @Override
+    public SaleCar selectOne(Integer id) {
+        return saleCarMapper.selectOne(id);
+    }
+
     private SaleCar createBean(Map<String, String> map, HttpSession session) {
         SaleCar saleCar = new SaleCar();
         //封装car_id

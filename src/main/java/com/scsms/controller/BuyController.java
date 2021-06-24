@@ -107,4 +107,24 @@ public class BuyController {
         return responseData;
     }
 
+    @GetMapping("/query")
+    public ResponseData query(@RequestParam("query") String query) {
+        ResponseData responseData = null;
+
+        return null;
+    }
+
+    @GetMapping("/car/details/{id}")
+    public ResponseData queryById(@PathVariable Integer id) {
+        ResponseData responseData = null;
+        SaleCar saleCar = saleCarService.selectOne(id);
+        if (saleCar != null) {
+            responseData = new ResponseData(0, "success", saleCar);
+        } else {
+            responseData = new ResponseData(1, "fail", null);
+        }
+        return responseData;
+    }
+
+
 }

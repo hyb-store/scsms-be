@@ -17,7 +17,7 @@
         <result property="createTime" column="create_time"></result>
         <result property="buyTime" column="buy_time"></result>
         <association property="car" column="car_id" javaType="com.scsms.pojo.Car">
-            <result property="id" column="id"></result>
+            <result property="id" column="car_id"></result>
             <result property="brand" column="brand"></result>
             <result property="series" column="series"></result>
             <result property="model" column="model"></result>
@@ -48,8 +48,13 @@
         insert into t_sale_car (car_id, price, km, color, status, views, store_id, user_id, create_time, buy_time)
                  values (#{carId}, #{price}, #{km}, #{color}, #{status}, #{views}, #{storeId}, #{userId}, #{createTime}, #{buyTime});
     </insert>
-    <select id="selectCarId" parameterType="String" resultType="Integer">
+
+    <select id="selectCarId"  parameterType="String" resultType="Integer">
         select id from t_car where brand = #{brand} and series = #{series} and model = #{model}
+    </select>
+
+    <select id="selectOne" parameterType="Integer" resultMap="saleCarMap">
+        select * from t_sale_car s, t_car c where s.car_id = c.id and s.id = #{id}
     </select>
 
 
