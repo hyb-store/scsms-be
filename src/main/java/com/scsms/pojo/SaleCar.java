@@ -1,6 +1,8 @@
 package com.scsms.pojo;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SaleCar implements Serializable {
@@ -24,7 +26,9 @@ public class SaleCar implements Serializable {
     }
 
     public void setBuyTime(Date buyTime) {
-        this.buyTime = buyTime;
+        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(buyTime);
+        Timestamp goodsC_date = Timestamp.valueOf(nowTime);//把时间转换
+        this.buyTime = goodsC_date;
     }
 
     public Car getCar() {
@@ -112,7 +116,9 @@ public class SaleCar implements Serializable {
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(createTime);
+        Timestamp goodsC_date = Timestamp.valueOf(nowTime);//把时间转换
+        this.createTime = goodsC_date;
     }
 
     @Override

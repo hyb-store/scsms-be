@@ -79,6 +79,9 @@ public class BuyController {
     @GetMapping("/models")
     public ResponseData selectModel(@RequestParam("series") String series) {
         ResponseData responseData = null;
+        if (series == null || series.equals("")) {
+            responseData = new ResponseData(0, "车系为空", null);
+        }
 
         List<String> models = carService.selectModelList(series);
         if (models != null) {
@@ -101,7 +104,7 @@ public class BuyController {
         if (saleCarPageInfo != null) {
             responseData = new ResponseData(0, "success", saleCarPageInfo);
         } else {
-            responseData = new ResponseData(1, "fail", null);
+            responseData = new ResponseData(1, "结果不存在", null);
         }
 
         return responseData;
@@ -114,17 +117,19 @@ public class BuyController {
         return null;
     }
 
-    @GetMapping("/car/details/{id}")
-    public ResponseData queryById(@PathVariable Integer id) {
+    @GetMapping("/car/details")
+    public ResponseData queryById(@RequestParam("id") Integer id) {
         ResponseData responseData = null;
+        if (id == null || id < 0) {
+            responseData = new ResponseData(1, "id为空", null);
+        }
         SaleCar saleCar = saleCarService.selectOne(id);
         if (saleCar != null) {
             responseData = new ResponseData(0, "success", saleCar);
         } else {
-            responseData = new ResponseData(1, "fail", null);
+            responseData = new ResponseData(1, "没有该车信息", null);
         }
         return responseData;
     }
-
 
 }

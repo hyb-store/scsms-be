@@ -220,34 +220,34 @@ method:get
 
 ```
 简述:根据条件查询
-url:/buy/car/details/{id}
+url:/buy/car/details
 method:get
 参数:
-- id   id直接拼在uri后面
+- id
 返回示例:
 {
     "status": 0,
     "msg": "success",
     "data": {
-        "id": 2,
-        "carId": 11,
-        "price": 20000,
-        "km": 50,
-        "color": "红",
-        "status": 1,
-        "views": 211,
-        "storeId": 5,
-        "userId": 2,
-        "createTime": "2021-06-21T17:20:49.000+00:00",
-        "buyTime": "2019-04-01T22:17:56.000+00:00",
+        "id": 20,
+        "carId": 5,
+        "price": 50000,
+        "km": 3,
+        "color": "黑",
+        "status": 0,
+        "views": 1505,
+        "storeId": 7,
+        "userId": 8,
+        "createTime": "2021-06-16T22:06:20.000+00:00",
+        "buyTime": "2019-06-01T22:20:23.000+00:00",
         "car": {
-            "id": 11,
+            "id": 5,
             "brand": "奥迪",
             "series": "奥迪A3",
-            "model": "奥迪A3 2018款 30周年年型 Limousine 40 TFSI 风尚型",
-            "structure": "4门5座三厢车",
+            "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+            "structure": "5门5座两厢车",
             "fuel": "汽油",
-            "price": "20000"
+            "price": "50000"
         }
     }
 }
@@ -276,21 +276,22 @@ method:get
     "status": 0,
     "msg": "success",
     "data": {
-        "total": 7,
+        "total": 28,
         "list": [
             {
                 "id": 1,
                 "carId": 10,
-                "price": "50000",
+                "price": 50000,
                 "km": 11,
                 "color": "黑",
                 "status": 0,
                 "views": 20,
                 "storeId": 2,
-                "userId": "1",
+                "userId": 1,
                 "createTime": "2021-06-22T16:42:45.000+00:00",
+                "buyTime": "2019-12-11T22:17:44.000+00:00",
                 "car": {
-                    "id": 1,
+                    "id": 10,
                     "brand": "奥迪",
                     "series": "奥迪A3",
                     "model": "奥迪A3 2018款 30周年年型 Limousine 35 TFSI 运动型",
@@ -302,16 +303,17 @@ method:get
             {
                 "id": 2,
                 "carId": 11,
-                "price": "20000",
+                "price": 20000,
                 "km": 50,
                 "color": "红",
                 "status": 1,
                 "views": 211,
                 "storeId": 5,
-                "userId": "2",
+                "userId": 2,
                 "createTime": "2021-06-21T17:20:49.000+00:00",
+                "buyTime": "2019-04-01T22:17:56.000+00:00",
                 "car": {
-                    "id": 2,
+                    "id": 11,
                     "brand": "奥迪",
                     "series": "奥迪A3",
                     "model": "奥迪A3 2018款 30周年年型 Limousine 40 TFSI 风尚型",
@@ -323,16 +325,17 @@ method:get
             {
                 "id": 3,
                 "carId": 14,
-                "price": "30000",
+                "price": 30000,
                 "km": 12,
                 "color": "白",
                 "status": 0,
                 "views": 213,
                 "storeId": 2,
-                "userId": "2",
+                "userId": 2,
                 "createTime": "2021-06-23T18:34:05.000+00:00",
+                "buyTime": "2019-08-01T22:18:04.000+00:00",
                 "car": {
-                    "id": 3,
+                    "id": 14,
                     "brand": "奥迪",
                     "series": "奥迪A4L",
                     "model": "奥迪A4L 2018款 30周年年型 40 TFSI 进取型",
@@ -344,16 +347,17 @@ method:get
             {
                 "id": 4,
                 "carId": 42,
-                "price": "51000",
+                "price": 51000,
                 "km": 23,
                 "color": "红",
                 "status": 0,
                 "views": 123,
                 "storeId": 2,
-                "userId": "1",
+                "userId": 1,
                 "createTime": "2021-06-23T18:34:43.000+00:00",
+                "buyTime": "2018-08-30T22:18:13.000+00:00",
                 "car": {
-                    "id": 4,
+                    "id": 42,
                     "brand": "奥迪",
                     "series": "奥迪RS 7",
                     "model": "奥迪RS 7 2016款 RS 7 4.0T Sportback",
@@ -365,16 +369,17 @@ method:get
             {
                 "id": 5,
                 "carId": 21,
-                "price": "89213",
+                "price": 89213,
                 "km": 5,
                 "color": "绿",
                 "status": 0,
                 "views": 123,
                 "storeId": 2,
-                "userId": "4",
+                "userId": 4,
                 "createTime": "2021-06-23T18:35:14.000+00:00",
+                "buyTime": "2018-09-01T22:18:18.000+00:00",
                 "car": {
-                    "id": 5,
+                    "id": 21,
                     "brand": "奥迪",
                     "series": "奥迪A6L",
                     "model": "奥迪A6L 2018款 30周年年型 35 TFSI 运动型",
@@ -382,13 +387,343 @@ method:get
                     "fuel": "汽油",
                     "price": "89213"
                 }
+            },
+            {
+                "id": 6,
+                "carId": 52,
+                "price": 100000,
+                "km": 2,
+                "color": "白",
+                "status": 0,
+                "views": 12312,
+                "storeId": 2,
+                "userId": 1,
+                "createTime": "2021-06-23T18:35:43.000+00:00",
+                "buyTime": "2009-06-23T22:18:22.000+00:00",
+                "car": {
+                    "id": 52,
+                    "brand": "奥迪",
+                    "series": "奥迪S3",
+                    "model": "奥迪S3 2017款 改款 S3 2.0T Limousine",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "100000"
+                }
+            },
+            {
+                "id": 7,
+                "carId": 23,
+                "price": 40000,
+                "km": 30,
+                "color": "黑",
+                "status": 0,
+                "views": 123,
+                "storeId": 1,
+                "userId": 1,
+                "createTime": "2021-06-23T18:36:58.000+00:00",
+                "buyTime": "2021-05-01T22:19:00.000+00:00",
+                "car": {
+                    "id": 23,
+                    "brand": "奥迪",
+                    "series": "奥迪A6L",
+                    "model": "奥迪A6L 2018款 30周年年型 45 TFSI quattro 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "40000"
+                }
+            },
+            {
+                "id": 8,
+                "carId": 21,
+                "price": 200000,
+                "km": 6,
+                "color": "白",
+                "status": 0,
+                "views": 123,
+                "storeId": 5,
+                "userId": 2,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2021-06-23T22:19:03.000+00:00",
+                "car": {
+                    "id": 21,
+                    "brand": "奥迪",
+                    "series": "奥迪A6L",
+                    "model": "奥迪A6L 2018款 30周年年型 35 TFSI 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "200000"
+                }
+            },
+            {
+                "id": 9,
+                "carId": 5,
+                "price": 50000,
+                "km": 3,
+                "color": "黑",
+                "status": 0,
+                "views": 155,
+                "storeId": 6,
+                "userId": 3,
+                "createTime": "2021-06-03T22:07:12.000+00:00",
+                "buyTime": "2021-01-23T22:19:05.000+00:00",
+                "car": {
+                    "id": 5,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+                    "structure": "5门5座两厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
+            },
+            {
+                "id": 10,
+                "carId": 5,
+                "price": 50000,
+                "km": 3,
+                "color": "黑",
+                "status": 0,
+                "views": 155,
+                "storeId": 7,
+                "userId": 8,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2020-06-23T22:19:11.000+00:00",
+                "car": {
+                    "id": 5,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+                    "structure": "5门5座两厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
+            },
+            {
+                "id": 11,
+                "carId": 5,
+                "price": 50000,
+                "km": 3,
+                "color": "黑",
+                "status": 0,
+                "views": 15,
+                "storeId": 7,
+                "userId": 8,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2016-06-23T22:19:15.000+00:00",
+                "car": {
+                    "id": 5,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+                    "structure": "5门5座两厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
+            },
+            {
+                "id": 12,
+                "carId": 10,
+                "price": 50000,
+                "km": 11,
+                "color": "黑",
+                "status": 0,
+                "views": 20,
+                "storeId": 2,
+                "userId": 1,
+                "createTime": "2021-06-22T16:42:45.000+00:00",
+                "buyTime": "2019-02-21T22:19:59.000+00:00",
+                "car": {
+                    "id": 10,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Limousine 35 TFSI 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
+            },
+            {
+                "id": 13,
+                "carId": 14,
+                "price": 30000,
+                "km": 12,
+                "color": "白",
+                "status": 0,
+                "views": 213,
+                "storeId": 2,
+                "userId": 2,
+                "createTime": "2021-06-23T18:34:05.000+00:00",
+                "buyTime": "2019-07-17T22:19:56.000+00:00",
+                "car": {
+                    "id": 14,
+                    "brand": "奥迪",
+                    "series": "奥迪A4L",
+                    "model": "奥迪A4L 2018款 30周年年型 40 TFSI 进取型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "30000"
+                }
+            },
+            {
+                "id": 14,
+                "carId": 42,
+                "price": 51000,
+                "km": 23,
+                "color": "红",
+                "status": 0,
+                "views": 1203,
+                "storeId": 2,
+                "userId": 8,
+                "createTime": "2021-06-23T18:34:43.000+00:00",
+                "buyTime": "2019-11-14T22:20:03.000+00:00",
+                "car": {
+                    "id": 42,
+                    "brand": "奥迪",
+                    "series": "奥迪RS 7",
+                    "model": "奥迪RS 7 2016款 RS 7 4.0T Sportback",
+                    "structure": "5门4座掀背车",
+                    "fuel": "汽油",
+                    "price": "51000"
+                }
+            },
+            {
+                "id": 15,
+                "carId": 21,
+                "price": 89213,
+                "km": 5,
+                "color": "绿",
+                "status": 0,
+                "views": 123,
+                "storeId": 2,
+                "userId": 8,
+                "createTime": "2021-06-23T18:35:14.000+00:00",
+                "buyTime": "2019-06-26T22:19:51.000+00:00",
+                "car": {
+                    "id": 21,
+                    "brand": "奥迪",
+                    "series": "奥迪A6L",
+                    "model": "奥迪A6L 2018款 30周年年型 35 TFSI 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "89213"
+                }
+            },
+            {
+                "id": 16,
+                "carId": 52,
+                "price": 100000,
+                "km": 2,
+                "color": "白",
+                "status": 0,
+                "views": 12312,
+                "storeId": 2,
+                "userId": 11,
+                "createTime": "2021-06-23T18:35:43.000+00:00",
+                "buyTime": "2019-08-15T22:20:08.000+00:00",
+                "car": {
+                    "id": 52,
+                    "brand": "奥迪",
+                    "series": "奥迪S3",
+                    "model": "奥迪S3 2017款 改款 S3 2.0T Limousine",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "100000"
+                }
+            },
+            {
+                "id": 17,
+                "carId": 23,
+                "price": 40000,
+                "km": 30,
+                "color": "黑",
+                "status": 0,
+                "views": 13,
+                "storeId": 1,
+                "userId": 1,
+                "createTime": "2021-06-23T18:36:58.000+00:00",
+                "buyTime": "2019-08-22T22:20:11.000+00:00",
+                "car": {
+                    "id": 23,
+                    "brand": "奥迪",
+                    "series": "奥迪A6L",
+                    "model": "奥迪A6L 2018款 30周年年型 45 TFSI quattro 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "40000"
+                }
+            },
+            {
+                "id": 18,
+                "carId": 21,
+                "price": 200000,
+                "km": 6,
+                "color": "白",
+                "status": 0,
+                "views": 23,
+                "storeId": 5,
+                "userId": 2,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2020-07-08T22:20:15.000+00:00",
+                "car": {
+                    "id": 21,
+                    "brand": "奥迪",
+                    "series": "奥迪A6L",
+                    "model": "奥迪A6L 2018款 30周年年型 35 TFSI 运动型",
+                    "structure": "4门5座三厢车",
+                    "fuel": "汽油",
+                    "price": "200000"
+                }
+            },
+            {
+                "id": 19,
+                "carId": 5,
+                "price": 50000,
+                "km": 3,
+                "color": "黑",
+                "status": 0,
+                "views": 155,
+                "storeId": 7,
+                "userId": 8,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2020-03-11T22:20:20.000+00:00",
+                "car": {
+                    "id": 5,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+                    "structure": "5门5座两厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
+            },
+            {
+                "id": 20,
+                "carId": 5,
+                "price": 50000,
+                "km": 3,
+                "color": "黑",
+                "status": 0,
+                "views": 1505,
+                "storeId": 7,
+                "userId": 8,
+                "createTime": "2021-06-16T22:06:20.000+00:00",
+                "buyTime": "2019-06-01T22:20:23.000+00:00",
+                "car": {
+                    "id": 5,
+                    "brand": "奥迪",
+                    "series": "奥迪A3",
+                    "model": "奥迪A3 2018款 30周年年型 Sportback 40 TFSI 风尚型",
+                    "structure": "5门5座两厢车",
+                    "fuel": "汽油",
+                    "price": "50000"
+                }
             }
         ],
         "pageNum": 1,
-        "pageSize": 5,
-        "size": 5,
+        "pageSize": 20,
+        "size": 20,
         "startRow": 1,
-        "endRow": 5,
+        "endRow": 20,
         "pages": 2,
         "prePage": 0,
         "nextPage": 2,
@@ -403,8 +738,8 @@ method:get
         ],
         "navigateFirstPage": 1,
         "navigateLastPage": 2,
-        "firstPage": 1,
-        "lastPage": 2
+        "lastPage": 2,
+        "firstPage": 1
     }
 }
 {

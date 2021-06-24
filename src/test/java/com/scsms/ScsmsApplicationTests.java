@@ -7,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 @SpringBootTest
 class ScsmsApplicationTests {
 
@@ -15,8 +18,13 @@ class ScsmsApplicationTests {
 
     @Test
     void contextLoads() {
-        SaleCar saleCar = saleCarMapper.selectOne(1);
-        System.out.println(saleCar);
+        SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            System.out.println(sfd.parse("2021-06-24"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 
 }

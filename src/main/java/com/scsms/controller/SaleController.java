@@ -1,14 +1,16 @@
 package com.scsms.controller;
 
+import com.scsms.pojo.SaleCar;
 import com.scsms.response.ResponseData;
 import com.scsms.service.SaleCarService;
+import com.scsms.util.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Map;
 
 @RestController
@@ -19,12 +21,25 @@ public class SaleController {
     private SaleCarService saleCarService;
 
     @PostMapping("/index")
-    public ResponseData saleCar(@RequestBody Map<String, String> map, HttpSession session) {
+    public ResponseData saleCar(@RequestBody Map<String, String> map) {
         ResponseData responseData = null;
+        if (map == null) {
+            responseData = new ResponseData(0, "字段为空", null);
+        }
+        ArrayList<String> list;
+        if ((list = MapUtils.getNullKey(map)).size() != 0) {
+            responseData = new ResponseData(0, "data中的字段值为空", list);
+        }
 
-        saleCarService.insertOne(map,session);
+        SaleCar saleCar = saleCarService.insertOne(map);
 
-        return null;
+        if (saleCar != null) {
+            responseData = new ResponseData(0, "success", saleCar);
+        } else {
+            responseData = new ResponseData(1, "fail", null);
+        }
+
+        return responseData;
     }
 
 
