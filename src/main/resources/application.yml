@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    username: root
+    password: yiqiandewo1
+    url: jdbc:mysql://120.24.218.221:3306/second_hand_car?serverTimezone=UTC&useUnicode=true&characterEnconding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mybatis:
+  type-aliases-package: com.scsms.pojo
+  mapper-locations: classpath:com/scsms/mapper/*.xml
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: countSql
+logging:
+  level:
+    com.scsms.mapper: debug

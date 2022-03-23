@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scsms.mapper.CarMapper">
+
+    <select id="selectBrandLimit" resultType="String">
+        select distinct brand from t_car limit 0,10
+    </select>
+
+    <select id="selectBrandList" resultType="String">
+        select distinct brand from t_car
+    </select>
+
+    <!--查车系，15-->
+    <select id="selectSeriesLimit" resultType="String">
+        select distinct series from t_car group by brand limit 0,10
+    </select>
+
+    <!--根据品牌查车系，15-->
+    <select id="selectSeriesLimitByBrand" parameterType="String" resultType="String">
+        select distinct series from t_car where brand = #{brand} limit 0,10
+    </select>
+
+    <!--根据品牌查所有车系-->
+    <select id="selectSeriesList" parameterType="String" resultType="String">
+        select distinct series from t_car where `brand` = #{brand}
+    </select>
+
+    <select id="selectModelList" parameterType="String" resultType="String">
+        select distinct model from t_car where `series` = #{series}
+    </select>
+
+
+</mapper>
