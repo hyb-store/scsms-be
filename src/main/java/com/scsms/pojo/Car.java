@@ -16,6 +16,7 @@ public class Car implements Serializable {
     private String logo; //汽车品牌logo
     private String cxLogo; //车系图片
 
+
     public Integer getId() {
         return id;
     }

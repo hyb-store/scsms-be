@@ -2,7 +2,6 @@ package com.scsms.service;
 
 import com.github.pagehelper.PageInfo;
 import com.scsms.pojo.SaleCar;
-
 import java.util.Map;
 
 public interface SaleCarService {

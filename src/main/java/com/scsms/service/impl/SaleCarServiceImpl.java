@@ -74,6 +74,7 @@ public class SaleCarServiceImpl implements SaleCarService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         //封装user_id
         saleCar.setUserId(Integer.parseInt(map.get("userId")));
         //设置浏览量，初始为0
@@ -84,7 +85,6 @@ public class SaleCarServiceImpl implements SaleCarService {
         saleCar.setPrice(Integer.parseInt(map.get("prices")));
         //创建时间
         saleCar.setCreateTime(new Date());
-
         return saleCar;
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scsms.mapper.OrderMapper">
+    <resultMap id="orderMapper" type="com.scsms.pojo.Order">
+        <result property="id" column="id"></result>
+        <result property="saleCarId" column="sale_car_id"></result>
+        <result property="storeId" column="store_id"></result>
+        <result property="buyerId" column="buyer_id"></result>
+        <result property="sellerId" column="seller_id"></result>
+        <result property="price" column="price"></result>
+        <result property="creatTime" column="create_time"></result>
+        <association property="saleCar" column="car_id" javaType="com.scsms.pojo.SaleCar">
+            <result property="id" column="id"></result>
+            <result property="carId" column="car_id"></result>
+            <result property="price" column="price"></result>
+            <result property="km" column="km"></result>
+            <result property="color" column="color"></result>
+            <result property="status" column="status"></result>
+            <result property="views" column="views"></result>
+            <result property="storeId" column="store_id"></result>
+            <result property="userId" column="user_id"></result>
+            <result property="createTime" column="create_time"></result>
+            <association property="car" column="car_id" javaType="com.scsms.pojo.Car">
+                <result property="id" column="id"></result>
+                <result property="brand" column="brand"></result>
+                <result property="series" column="series"></result>
+                <result property="model" column="model"></result>
+                <result property="structure" column="structure"></result>
+                <result property="fuel" column="fuel"></result>
+                <result property="price" column="price"></result>
+            </association>
+        </association>
+    </resultMap>
+
+    <select id="getOrder">
+
+    </select>
+
+</mapper>
