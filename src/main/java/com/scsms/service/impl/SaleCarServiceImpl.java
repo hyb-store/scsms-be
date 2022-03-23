@@ -74,23 +74,17 @@ public class SaleCarServiceImpl implements SaleCarService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        //封装店铺id
-        saleCar.setStoreId(1);
+
         //封装user_id
         saleCar.setUserId(Integer.parseInt(map.get("userId")));
         //设置浏览量，初始为0
         saleCar.setViews(0);
-        //设置状态,默认为0
-        saleCar.setStatus(0);
         //行驶里程  km
         saleCar.setKm(Integer.parseInt(map.get("km")));
-        //颜色 color
-        saleCar.setColor(map.get("color"));
         //价格 price
         saleCar.setPrice(Integer.parseInt(map.get("prices")));
         //创建时间
         saleCar.setCreateTime(new Date());
-
         return saleCar;
     }
 }

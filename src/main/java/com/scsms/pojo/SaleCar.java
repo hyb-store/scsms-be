@@ -11,10 +11,7 @@ public class SaleCar implements Serializable {
     private Integer carId; //汽车id
     private Integer price; //上架价格
     private Integer km; //里程数(km)
-    private String color; //颜色
-    private Integer status; //0 或 1  代表 未卖出  和卖出
     private Integer views; //浏览量
-    private Integer storeId; //上架门店
     private Integer userId; //车主
     private Date createTime; //上架日期
     private Date buyTime; //购买日期
@@ -71,36 +68,12 @@ public class SaleCar implements Serializable {
         this.km = km;
     }
 
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
     public Integer getViews() {
         return views;
     }
 
     public void setViews(Integer views) {
         this.views = views;
-    }
-
-    public Integer getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Integer storeId) {
-        this.storeId = storeId;
     }
 
     public Integer getUserId() {
@@ -128,10 +101,7 @@ public class SaleCar implements Serializable {
                 ", carId=" + carId +
                 ", price='" + price + '\'' +
                 ", km=" + km +
-                ", color='" + color + '\'' +
-                ", status=" + status +
                 ", views=" + views +
-                ", storeId=" + storeId +
                 ", userId='" + userId + '\'' +
                 ", createTime=" + createTime +
                 ", buyTime=" + buyTime +

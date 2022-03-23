@@ -24,9 +24,10 @@ public class BuyController {
     @GetMapping("/index")
     public ResponseData selectCarInfo() {
         Map<String, List<String >> map = carService.selectList();
+
         ResponseData responseData = null;
         if (map != null) {
-            responseData = new ResponseData(0, "查询成功", map);
+            responseData = new ResponseData(0, "查询成功ee", map);
         } else {
             responseData = new ResponseData(1, "查询失败", null);
         }
@@ -137,7 +138,7 @@ public class BuyController {
         if (saleCar != null) {
             responseData = new ResponseData(0, "success", saleCar);
         } else {
-            responseData = new ResponseData(1, "没有该车信息", null);
+            responseData = new ResponseData(1, "没有该车信息zz", null);
         }
         return responseData;
     }

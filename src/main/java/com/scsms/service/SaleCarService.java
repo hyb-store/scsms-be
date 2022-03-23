@@ -2,8 +2,6 @@ package com.scsms.service;
 
 import com.github.pagehelper.PageInfo;
 import com.scsms.pojo.SaleCar;
-
-import java.util.List;
 import java.util.Map;
 
 public interface SaleCarService {
@@ -15,6 +13,5 @@ public interface SaleCarService {
     SaleCar selectOne(Integer id);
 
     PageInfo<SaleCar> query(int page, int size, String query);
-
 
 }

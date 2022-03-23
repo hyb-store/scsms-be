@@ -11,6 +11,7 @@ public class User implements Serializable {
     private String phoneNum;
     private String email;
     private Integer gender;
+    private Integer admin;
 
     //一个用户可能有多个上架的车
     private List<SaleCar> saleCars;
@@ -63,6 +64,14 @@ public class User implements Serializable {
         this.gender = gender;
     }
 
+    public Integer getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -71,7 +80,9 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", phoneNum='" + phoneNum + '\'' +
                 ", email='" + email + '\'' +
-                ", gender='" + gender + '\'' +
+                ", gender=" + gender +
+                ", admin=" + admin +
+                ", saleCars=" + saleCars +
                 '}';
     }
 }

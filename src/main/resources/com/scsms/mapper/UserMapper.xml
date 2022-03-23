@@ -19,7 +19,7 @@
     </select>
 
     <insert id="register" useGeneratedKeys="true" keyProperty="id" parameterType="com.scsms.pojo.User">
-        insert into t_user (username, password, phone_num, email, gender) values (#{username}, #{password}, #{phoneNum}, #{email}, #{gender});
+        insert into t_user (username, password, phone_num, email, gender, admin) values (#{username}, #{password}, #{phoneNum}, #{email}, #{gender}, 0);
     </insert>
 
 </mapper>

@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public class Car implements Serializable {
 
+    public final static String URL = "http://localhost:8081/img/";
+
     private Integer id;
     private String brand; //汽车品牌
     private String series; //汽车车系
@@ -11,6 +13,9 @@ public class Car implements Serializable {
     private String structure; //汽车车身结构(5门5座两厢车)
     private String fuel; //汽车的燃料类型(电动、汽油、混动)
     private String price; //汽车原价/厂商指导价
+    private String logo; //汽车品牌logo
+    private String cxLogo; //车系图片
+
 
     public Integer getId() {
         return id;
@@ -68,6 +73,22 @@ public class Car implements Serializable {
         this.price = price;
     }
 
+    public String getLogo() {
+        return URL + logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
+    }
+
+    public String getCxLogo() {
+        return URL + cxLogo;
+    }
+
+    public void setCxLogo(String cxLogo) {
+        this.cxLogo = cxLogo;
+    }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -78,6 +99,8 @@ public class Car implements Serializable {
                 ", structure='" + structure + '\'' +
                 ", fuel='" + fuel + '\'' +
                 ", price='" + price + '\'' +
+                ", logo='" + logo + '\'' +
+                ", cxLogo='" + cxLogo + '\'' +
                 '}';
     }
 }
