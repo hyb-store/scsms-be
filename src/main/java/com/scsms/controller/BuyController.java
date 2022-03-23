@@ -138,7 +138,7 @@ public class BuyController {
         if (saleCar != null) {
             responseData = new ResponseData(0, "success", saleCar);
         } else {
-            responseData = new ResponseData(1, "没有该车信息", null);
+            responseData = new ResponseData(1, "没有该车信息zz", null);
         }
         return responseData;
     }
