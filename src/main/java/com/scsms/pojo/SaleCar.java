@@ -14,19 +14,7 @@ public class SaleCar implements Serializable {
     private Integer views; //浏览量
     private Integer userId; //车主
     private Date createTime; //上架日期
-    private Date buyTime; //购买日期
-
     private Car car;  //一对一
-
-    public Date getBuyTime() {
-        return buyTime;
-    }
-
-    public void setBuyTime(Date buyTime) {
-        String nowTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(buyTime);
-        Timestamp goodsC_date = Timestamp.valueOf(nowTime);//把时间转换
-        this.buyTime = goodsC_date;
-    }
 
     public Car getCar() {
         return car;
@@ -104,7 +92,6 @@ public class SaleCar implements Serializable {
                 ", views=" + views +
                 ", userId='" + userId + '\'' +
                 ", createTime=" + createTime +
-                ", buyTime=" + buyTime +
                 ", car=" + car +
                 '}';
     }

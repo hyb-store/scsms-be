@@ -27,7 +27,7 @@ public class BuyController {
 
         ResponseData responseData = null;
         if (map != null) {
-            responseData = new ResponseData(0, "查询成功ee", map);
+            responseData = new ResponseData(0, "查询成功", map);
         } else {
             responseData = new ResponseData(1, "查询失败", null);
         }
