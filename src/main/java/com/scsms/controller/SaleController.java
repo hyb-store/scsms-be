@@ -20,7 +20,7 @@ public class SaleController {
     @Autowired
     private SaleCarService saleCarService;
 
-    @PostMapping("/index")
+    @PostMapping("/index") //卖家填写信息
     public ResponseData saleCar(@RequestBody Map<String, String> map) {
         ResponseData responseData = null;
         if (map == null) {

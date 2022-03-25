@@ -94,7 +94,7 @@ public class BuyController {
         return responseData;
     }
 
-    @GetMapping("/queryInfo")
+    @GetMapping("/queryInfo")//条件搜索
     public ResponseData selectCarInfo(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                       @RequestParam(name = "size", defaultValue = "20") Integer size,
                                       @RequestParam(value = "brand", required =  false) String brand,
@@ -111,7 +111,7 @@ public class BuyController {
         return responseData;
     }
 
-    @GetMapping("/query")
+    @GetMapping("/query")//模糊搜索
     public ResponseData query(@RequestParam(name = "page", defaultValue = "1") Integer page,
                               @RequestParam(name = "size", defaultValue = "20") Integer size,
                               @RequestParam("query") String query) {
@@ -138,7 +138,7 @@ public class BuyController {
         if (saleCar != null) {
             responseData = new ResponseData(0, "success", saleCar);
         } else {
-            responseData = new ResponseData(1, "没有该车信息zz", null);
+            responseData = new ResponseData(1, "没有该车信息", null);
         }
         return responseData;
     }

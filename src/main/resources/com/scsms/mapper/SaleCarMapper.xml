@@ -13,6 +13,7 @@
         <result property="userId" column="user_id"></result>
         <result property="createTime" column="create_time"></result>
         <result property="buyTime" column="buy_time"></result>
+        <result property="publish" column="publish"></result>
         <association property="car" column="car_id" javaType="com.scsms.pojo.Car">
             <result property="id" column="car_id"></result>
             <result property="brand" column="brand"></result>
@@ -40,13 +41,14 @@
             <if test="series != null and series != ''">
                 and c.`series` = #{series}
             </if>
+            and s.publish = 1
         </where>
     </select>
 
-
+    <!--插入一条新的未审核的卖车信息-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="com.scsms.pojo.SaleCar">
-        insert into t_sale_car (car_id, price, km, views, user_id, create_time, buy_time)
-                 values (#{carId}, #{price}, #{km}, #{views}, #{userId}, #{createTime}, #{buyTime});
+        insert into t_sale_car (car_id, price, km, views, user_id, create_time, buy_time,publish)
+                 values (#{carId}, #{price}, #{km}, #{views}, #{userId}, #{createTime}, #{buyTime}, 0)
     </insert>
 
     <select id="selectCarId"  parameterType="String" resultType="Integer">

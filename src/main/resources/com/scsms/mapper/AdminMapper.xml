@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.scsms.mapper.AdminMapper">
+    <resultMap id="adminMap" type="com.scsms.pojo.SaleCar">
+        <result property="id" column="id"></result>
+        <result property="carId" column="car_id"></result>
+        <result property="price" column="price"></result>
+        <result property="km" column="km"></result>
+        <result property="views" column="views"></result>
+        <result property="userId" column="user_id"></result>
+        <result property="createTime" column="create_time"></result>
+        <result property="buyTime" column="buy_time"></result>
+        <result property="publish" column="publish"></result>
+        <association property="car" column="car_id" javaType="com.scsms.pojo.Car">
+            <result property="id" column="car_id"></result>
+            <result property="brand" column="brand"></result>
+            <result property="series" column="series"></result>
+            <result property="model" column="model"></result>
+            <result property="structure" column="structure"></result>
+            <result property="fuel" column="fuel"></result>
+            <result property="price" column="price"></result>
+            <result property="logo" column="blogo"></result>
+            <result property="cxLogo" column="cxlogo"></result>
+        </association>
+    </resultMap>
+
+    <select id="selectPublishList" resultMap="adminMap">
+         select s.*, c.id cid,c.brand,c.series,c.model,c.structure,c.fuel,c.price cprice,c.blogo,c.cxlogo  from t_sale_car s left join t_car c on s.car_id = c.id where publish = 0
+    </select>
+
+    <update id="updatePublish">
+        update t_sale_car set publish = #{publish} where id = #{saleId}
+    </update>
+
+
+</mapper>

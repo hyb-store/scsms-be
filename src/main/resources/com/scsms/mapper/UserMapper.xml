@@ -12,6 +12,7 @@
         <result column="phone_num" property="phoneNum"></result>
         <result column="email" property="email"></result>
         <result column="gender" property="gender"></result>
+        <result column="admin" property="admin"></result>
     </resultMap>
 
     <select id="selectOne" parameterType="String" resultMap="userMap">

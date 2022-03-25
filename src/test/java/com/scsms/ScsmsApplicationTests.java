@@ -24,6 +24,16 @@ class ScsmsApplicationTests {
         for (SaleCar saleCar : list) {
             System.out.println(saleCar);
         }
+
+        PageInfo<SaleCar> 奥迪 = saleCarService.selectList(1, 20, "奥迪", null, null);
+        System.out.println(奥迪.getList().toString());
+    }
+
+    @Test
+    void contextLoads0() {
+        String i = "";
+        System.out.println("".equals(i));
+        System.out.println(i.equals(""));
     }
 
 }
