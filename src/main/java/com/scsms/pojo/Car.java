@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Car implements Serializable {
 
-    public final static String URL = "http://localhost:8081/img/";
+    public final static String URL = "http://192.168.1.104:8081/img/";
 
     private Integer id;
     private String brand; //汽车品牌
@@ -74,19 +74,21 @@ public class Car implements Serializable {
     }
 
     public String getLogo() {
-        return URL + logo;
+        return logo;
     }
 
     public void setLogo(String logo) {
-        this.logo = logo;
+        String replace = logo.replace('\\', '/');
+        this.logo = URL + replace;
     }
 
     public String getCxLogo() {
-        return URL + cxLogo;
+        return  cxLogo;
     }
 
     public void setCxLogo(String cxLogo) {
-        this.cxLogo = cxLogo;
+        String replace = cxLogo.replace('\\', '/');
+        this.cxLogo = URL + replace;
     }
 
     @Override

@@ -23,9 +23,6 @@ public class OrderServiceImpl implements OrderService {
     public List<Order> getOrder(Integer id) {
 
         //查询order表中buyerid和sellerId等于id的所有信息
-
-
-
         Order order = orderMapper.getOrder(id);
         return null;
     }

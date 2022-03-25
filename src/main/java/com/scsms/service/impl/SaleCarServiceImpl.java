@@ -66,15 +66,6 @@ public class SaleCarServiceImpl implements SaleCarService {
         //封装car_id
         int carId = saleCarMapper.selectCarId(map.get("brand"), map.get("series"), map.get("model"));
         saleCar.setCarId(carId);
-        //买车时间 buyTime
-        //2020-01-12
-        SimpleDateFormat sfd = new SimpleDateFormat("yyyy-MM-dd");
-        try {
-            saleCar.setBuyTime(sfd.parse(map.get("buyTime")));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
         //封装user_id
         saleCar.setUserId(Integer.parseInt(map.get("userId")));
         //设置浏览量，初始为0

@@ -6,7 +6,6 @@ public class Order {
 
     private Integer id;
     private Integer saleCarId;
-    private Integer storeId;
     private Integer buyerId; //买
     private Integer sellerId; //卖
     private Integer price;  //卖出价格
@@ -19,7 +18,6 @@ public class Order {
 
     public Order(Integer saleCarId, Integer storeId, Integer buyerId, Integer sellerId, Integer price, Date creatTime) {
         this.saleCarId = saleCarId;
-        this.storeId = storeId;
         this.buyerId = buyerId;
         this.sellerId = sellerId;
         this.price = price;
@@ -48,14 +46,6 @@ public class Order {
 
     public void setSaleCarId(Integer saleCarId) {
         this.saleCarId = saleCarId;
-    }
-
-    public Integer getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(Integer storeId) {
-        this.storeId = storeId;
     }
 
     public Integer getBuyerId() {
