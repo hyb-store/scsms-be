@@ -2,6 +2,7 @@ package com.scsms.service;
 
 import com.github.pagehelper.PageInfo;
 import com.scsms.pojo.SaleCar;
+import com.scsms.pojo.User;
 
 public interface AdminService {
     /**
@@ -15,4 +16,14 @@ public interface AdminService {
      * @return
      */
     void updatePublish(Integer saleId, Integer publish);
+
+    /**
+     * 查找所有普通用户
+     */
+    PageInfo<User> selectUserList(int page, int size);
+
+    /**
+     * 根据id删除用户
+     */
+    void deleteUserById(Integer uid);
 }

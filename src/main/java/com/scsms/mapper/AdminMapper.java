@@ -2,6 +2,7 @@ package com.scsms.mapper;
 
 import com.github.pagehelper.PageInfo;
 import com.scsms.pojo.SaleCar;
+import com.scsms.pojo.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -20,4 +21,16 @@ public interface AdminMapper {
      * @return
      */
     void updatePublish(@Param("saleId") Integer saleId,@Param("publish") Integer publish);
+
+    /**
+     * 查找所有普通用户
+     * @return
+     */
+    List<User> selectUserList();
+
+    /**
+     * 根据id删除用户
+     * @param uid
+     */
+    void deleteUserById(Integer uid);
 }

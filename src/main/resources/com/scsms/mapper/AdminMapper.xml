@@ -26,6 +26,15 @@
             <result property="cxLogo" column="cxlogo"></result>
         </association>
     </resultMap>
+    <resultMap id="userMap" type="com.scsms.pojo.User">
+        <result property="id" column="id"></result>
+        <result property="username" column="username"></result>
+        <result property="password" column="password"></result>
+        <result property="phoneNum" column="phone_num"></result>
+        <result property="email" column="email"></result>
+        <result property="gender" column="gender"></result>
+        <result property="admin" column="admin"></result>
+    </resultMap>
 
     <select id="selectPublishList" resultMap="adminMap">
          select s.*, c.id cid,c.brand,c.series,c.model,c.structure,c.fuel,c.price cprice,c.blogo,c.cxlogo  from t_sale_car s left join t_car c on s.car_id = c.id where publish = 0
@@ -34,6 +43,14 @@
     <update id="updatePublish">
         update t_sale_car set publish = #{publish} where id = #{saleId}
     </update>
+
+    <select id="selectUserList" resultMap="userMap">
+        select * from t_user where admin = 0
+    </select>
+
+    <delete id="deleteUserById" parameterType="Integer">
+        DELETE FROM t_user WHERE id = #{uid}
+    </delete>
 
 
 </mapper>
