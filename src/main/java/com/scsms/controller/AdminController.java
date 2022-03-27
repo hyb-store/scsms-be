@@ -2,6 +2,7 @@ package com.scsms.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.scsms.pojo.SaleCar;
+import com.scsms.pojo.User;
 import com.scsms.response.ResponseData;
 import com.scsms.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ public class AdminController {
         if (saleCarPageInfo != null) {
             responseData = new ResponseData(0, "查询成功", saleCarPageInfo);
         } else {
-            responseData = new ResponseData(0, "未查询到结果", saleCarPageInfo);
+            responseData = new ResponseData(1, "未查询到结果", null);
         }
         return responseData;
     }
@@ -43,7 +44,31 @@ public class AdminController {
         } else {
             responseData = new ResponseData(1, "参数错误", null);
         }
+        return responseData;
+    }
 
+    @GetMapping("/userList")//查找所有普通用户(非管理员)
+    public ResponseData selectUserList (@RequestParam(name = "page", defaultValue = "1") Integer page,
+                                        @RequestParam(name = "size", defaultValue = "10") Integer size) {
+        ResponseData responseData = null;
+        PageInfo<User> userPageInfo = adminService.selectUserList(page, size);
+        if (userPageInfo != null) {
+            responseData = new ResponseData(0, "查询成功", userPageInfo);
+        } else {
+            responseData = new ResponseData(1, "未查询到结果", null);
+        }
+        return responseData;
+    }
+
+    @GetMapping("delete")
+    public ResponseData deleteUserById (@RequestParam(name = "uid") Integer id) {
+        ResponseData responseData = null;
+        if (id == null || id.equals("")) {
+            responseData = new ResponseData(1, "参数为空，查询失败", null);
+        } else {
+            adminService.deleteUserById(id);
+            responseData = new ResponseData(0, "删除成功", null);
+        }
         return responseData;
     }
 
