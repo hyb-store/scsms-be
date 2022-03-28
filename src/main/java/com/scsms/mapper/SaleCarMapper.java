@@ -17,4 +17,6 @@ public interface SaleCarMapper {
     int selectCarId(String brand, String series, String model);//根据品牌，车系，款式查询car_id
 
     List<SaleCar> query(String query);//模糊查询
+
+    void delete(int id);
 }

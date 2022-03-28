@@ -8,11 +8,13 @@ import com.scsms.service.SaleCarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Service
 public class SaleCarServiceImpl implements SaleCarService {
@@ -61,7 +63,17 @@ public class SaleCarServiceImpl implements SaleCarService {
         return new PageInfo<>(saleCarQuery);
     }
 
+    @Override
+    public void delete(int id) {
+        saleCarMapper.delete(id);
+    }
+
     private SaleCar createBean(Map<String, String> map) {
+        Set<Map.Entry<String, String>> entries = map.entrySet();
+        for (Map.Entry<String, String> entry : entries) {
+            System.out.println(entry.getKey());
+            System.out.println(entry.getValue());
+        }
         SaleCar saleCar = new SaleCar();
         //封装car_id
         int carId = saleCarMapper.selectCarId(map.get("brand"), map.get("series"), map.get("model"));
@@ -73,7 +85,16 @@ public class SaleCarServiceImpl implements SaleCarService {
         //行驶里程  km
         saleCar.setKm(Integer.parseInt(map.get("km")));
         //价格 price
-        saleCar.setPrice(Integer.parseInt(map.get("prices")));
+        saleCar.setPrice(Integer.parseInt(map.get("price")));
+        //购买时间
+        DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd");
+        Date buyTime = null;
+        try {
+            buyTime = fmt.parse(map.get("buyTime"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        saleCar.setBuyTime(buyTime);
         //创建时间
         saleCar.setCreateTime(new Date());
         return saleCar;
