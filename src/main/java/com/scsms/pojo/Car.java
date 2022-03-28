@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Car implements Serializable {
 
-    public final static String URL = "http://192.168.1.104:8081/img/";
+    public final static String URL = "http://192.168.1.106:8081/img/";
 
     private Integer id;
     private String brand; //汽车品牌

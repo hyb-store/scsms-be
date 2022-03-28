@@ -14,4 +14,6 @@ public interface SaleCarService {
 
     PageInfo<SaleCar> query(int page, int size, String query);
 
+    void delete(int id);
+
 }

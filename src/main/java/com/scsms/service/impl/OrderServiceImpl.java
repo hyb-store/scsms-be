@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @Transactional
@@ -30,5 +27,10 @@ public class OrderServiceImpl implements OrderService {
         order.put("buyOrder", buyOrder);
         order.put("saleOrder", saleOrder);
         return order;
+    }
+
+    @Override
+    public void insertOrder(SaleCar saleCar, Integer buyerId) {
+        orderMapper.insertOrder(saleCar, buyerId, new Date());
     }
 }

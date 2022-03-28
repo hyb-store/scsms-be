@@ -63,4 +63,8 @@
          select s.*,c.id cid,c.brand,c.series,c.model,c.structure,c.fuel,c.price cprice, c.blogo, c.cxlogo  from t_sale_car s left join t_car c on s.car_id = c.id where c.model like "%"#{query}"%"
     </select>
 
+    <delete id="delete" >
+        delete from t_sale_car where id = #{id}
+    </delete>
+
 </mapper>
