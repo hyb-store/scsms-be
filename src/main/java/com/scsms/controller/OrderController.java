@@ -16,13 +16,16 @@ import java.util.Map;
 @RequestMapping("/order")
 public class OrderController {
 
-    class InsertParam {
+    static class InsertParam {
         private Integer saleCarId;
         private Integer buyerId;
 
         public InsertParam(Integer saleCarId, Integer buyerId) {
             this.saleCarId = saleCarId;
             this.buyerId = buyerId;
+        }
+
+        public InsertParam() {
         }
 
         public Integer getSaleCarId() {

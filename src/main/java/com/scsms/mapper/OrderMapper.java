@@ -15,5 +15,5 @@ public interface OrderMapper {
 
     public List<Order> getSaleOrder(Integer saleCarId);
 
-    public void insertOrder(SaleCar saleCar, Integer buyerId, Date buyTime);
+    public void insertOrder(@Param("id") Integer id, @Param("userId")Integer userId, @Param("buyerId")Integer buyerId, @Param("price")Integer price, @Param("buyTime")Date buyTime);
 }

@@ -31,6 +31,6 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public void insertOrder(SaleCar saleCar, Integer buyerId) {
-        orderMapper.insertOrder(saleCar, buyerId, new Date());
+        orderMapper.insertOrder(saleCar.getId(), saleCar.getUserId(), buyerId, saleCar.getPrice(), new Date());
     }
 }

@@ -48,8 +48,8 @@
     </select>
 
     <!--插入新订单-->
-    <insert id="insertOrder" parameterType="com.scsms.pojo.SaleCar">
-        insert into `order` (sale_car_id, buyer_id, seller_id, price, create_time) VALUES (#{id}, #{buyerId}, #{userId}, #{buyTime})
+    <insert id="insertOrder">
+        INSERT INTO `order`(`sale_car_id`, `buyer_id`, `seller_id`, `price`, `create_time`) VALUES (#{id}, #{buyerId}, #{userId}, #{price}, #{buyTime})
     </insert>
 
 </mapper>
